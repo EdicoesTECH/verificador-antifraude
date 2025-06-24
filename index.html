@@ -3,65 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <title>Verificador de Equipe - Shalom Play</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('Design sem nome (7).png') no-repeat center center fixed;
-      background-size: cover;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #000428, #004e92);
+      color: white;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      color: white;
+      overflow: hidden;
     }
+
     .container {
-      background-color: rgba(0, 0, 0, 0.65);
+      background-color: rgba(0, 0, 0, 0.75);
       padding: 40px;
       border-radius: 16px;
       text-align: center;
       max-width: 90%;
       width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+      animation: fadeIn 1s ease-in-out;
     }
+
     .logo {
-      width: 180px;
-      margin-bottom: 30px;
+      width: 160px;
+      margin-bottom: 25px;
     }
+
+    h2 {
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
     input {
       padding: 12px;
       font-size: 16px;
       width: 100%;
-      margin-bottom: 20px;
+      border-radius: 8px;
       border: none;
-      border-radius: 6px;
+      margin-bottom: 20px;
       text-align: center;
+      outline: none;
     }
+
     button {
       padding: 12px 24px;
       font-size: 16px;
-      background-color: #0057d8;
-      color: white;
+      background-color: #007bff;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
+      color: white;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
-      background-color: #0040a8;
+      background-color: #0056b3;
     }
+
     #resultado {
       margin-top: 20px;
-      font-weight: bold;
+      font-weight: 600;
       font-size: 18px;
+      min-height: 30px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="logo branca (1).png" alt="Logo Shalom Play" class="logo">
+    <img src="logo.png" alt="Logo Shalom Play" class="logo">
     <h2>Verifique se o número é oficial da nossa equipe</h2>
-    <input type="text" id="numero" placeholder="Digite o número com DDD">
+    <input type="text" id="numero" placeholder="Digite o número com DDD (ex: 85999998888)">
     <button onclick="verificarNumero()">Verificar</button>
     <div id="resultado"></div>
   </div>
@@ -81,7 +105,7 @@
 
       if (!input) {
         resultado.style.color = "#ffcc00";
-        resultado.textContent = "Por favor, digite um número para verificar.";
+        resultado.textContent = "⚠️ Por favor, digite um número para verificar.";
         return;
       }
 
