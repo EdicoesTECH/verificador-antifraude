@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Verificador de Equipe - Shalom Play</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('Design sem nome (7).png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+    }
+    .container {
+      background-color: rgba(0, 0, 0, 0.65);
+      padding: 40px;
+      border-radius: 16px;
+      text-align: center;
+      max-width: 90%;
+      width: 400px;
+    }
+    .logo {
+      width: 180px;
+      margin-bottom: 30px;
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #resultado {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="logo branca (1).png" alt="Logo Shalom Play" class="logo">
+    <h2>Verificador de número oficial da equipe</h2>
+    <input type="text" id="numero" placeholder="Digite o número com DDD">
+    <button onclick="verificarNumero()">Verificar</button>
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    const equipeOficial = [
+      "+558597438483",
+      "+5511982151521",
+      "+557981555445",
+      "+558586381878"
+    ];
+
+    function verificarNumero() {
+      const input = document.getElementById("numero").value.replace(/\D/g, "");
+      const numeroFormatado = "+55" + input;
+      const resultado = document.getElementById("resultado");
+
+      if (equipeOficial.includes(numeroFormatado)) {
+        resultado.style.color = "#00ff99";
+        resultado.textContent = "✅ Esse número pertence à nossa equipe.";
+      } else {
+        resultado.style.color = "#ff4444";
+        resultado.textContent = "❌ Esse número NÃO pertence à nossa equipe. Não confie.";
+      }
+    }
+  </script>
+</body>
+</html>
