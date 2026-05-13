@@ -106,7 +106,9 @@
     ];
 
     function verificarNumero() {
-      const input = document.getElementById("numero").value.replace(/\D/g, "");
+      const digits = document.getElementById("numero").value.replace(/\D/g, "");
+      // remove 55 do início caso o usuário tenha digitado com código do país
+      const input = digits.startsWith("55") && digits.length > 11 ? digits.slice(2) : digits;
       const numeroFormatado = "+55" + input;
       const resultado = document.getElementById("resultado");
 
